@@ -1,8 +1,5 @@
 [
     {"group_id": "0", "name": "test", "quizes": [
         {"quiz_id": "0_1", "txt": "日本一高い山は？", "ans": "富士山"}
-    ]},
-    {"group_id": "1", "name": "私の名は吉良吉影。", "quizes": [
-        {"quiz_id": "0_1", "txt": "日本一高い山は？", "ans": "富士山"}
     ]}
 ]
