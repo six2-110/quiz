@@ -20,9 +20,24 @@
             color: #228b22;
             font-family: '游明朝','Yu Mincho',YuMincho,'Hiragino Mincho Pro',serif; /* 明朝体 */
         }
+        #settings{
+            background-color: #f0e68c;
+            margin-top: 10vh;
+            padding: 20px;
+        }
+        #order{
+            width: 200px;
+            height: 50px;
+            background-color: #fff;
+            border: 1px solid #000;
+            border-radius: 10px;
+            padding: 5px 10px;
+            color: #4169e1;
+            font-size: 20pt;
+        }
         #menu{
             display: flex;
-            margin-top: 100px;
+            margin-top: 10vh;
             flex-direction: row;
             justify-content: center;
             flex-wrap: wrap
@@ -59,8 +74,17 @@
         </a>
         <h1 id="site_name">QUIZ!</h1>
     </div>
+
+    <div id="settings">
+        <select name="settings" id="order" value="in_order">
+            <option value="in_order">順番通り</option>
+            <option value="random">ランダム</option>
+            <option value="endless">エンドレス</option>
+        </select>
+    </div>
+
     <div id="menu"></div>
 
-    <script src="index.js" type="module"></script>
+    <script src="index.js"></script>
 </body>
 </html>
