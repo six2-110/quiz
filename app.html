@@ -103,6 +103,11 @@
         #corr_ans{
             margin-bottom: 30px;
         }
+        #nextQuiz_btn{
+            margin:0 3vw 10px auto;
+            display: block;
+            width: clamp(100px, 10vw, 300px);
+        }
 
         #score_box{
             font-size: clamp(15pt, 3vw, 30pt);
@@ -144,12 +149,12 @@
         </div>
     </div>
 
-    <div id="description_box" style="display: block;">
+    <div id="description_box" style="display: none;">
         <p id="is_corr">正解</p>
         <p id="ps_ans">回答: wryyy</p>
         <p id="corr_ans">正解: wryyy</p>
         <p id="description">本当に、そうでしょうか</p>
-        <img src="next.png" alt="OK" srcset="">
+        <img src="next.png" alt="OK" id="nextQuiz_btn">
     </div>
     
     <div id="score_box">
@@ -165,6 +170,10 @@
             <tr class="score_tr">
                 <th><span>誤答数</span></th>
                 <td><span id="num_wrong">0</span></td>
+            </tr>
+            <tr class="corr_rate_tr">
+                <th><span>誤答数</span></th>
+                <td><span id="corr_rate">0%</span></td>
             </tr>
         </table>
     </div>
