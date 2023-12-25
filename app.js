@@ -199,9 +199,9 @@ async function answer() {
 // 正答・プレイヤーの回答・解説などを書く処理
 function put_description() {
     $('#is_corr').innerText = is_collect ? '正解' : '不正解'; // 正解家不正解かを表示
-    $('#ps_ans').innerText = '回答: ' + $('#answer').value; // プレイヤーの回答を表示
-    $('#corr_ans').innerText = '正答: ' + now_quiz.ans.join(', '); // 正答を表示
-    $('#description').innerHTML = '解説: ' + now_quiz.desc; // 解説を表示
+    $('#ps_ans').innerHTML = '<strong>回答:</strong> ' + $('#answer').value; // プレイヤーの回答を表示
+    $('#corr_ans').innerHTML = '<strong>正答:</strong> ' + now_quiz.ans.join(', '); // 正答を表示
+    $('#description').innerHTML = '<strong>解説:</strong> ' + now_quiz.desc; // 解説を表示
 }
 
 // addEventListener

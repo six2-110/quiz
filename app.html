@@ -91,14 +91,13 @@
 
         #description_box{
             font-size: clamp(15pt, 3vw, 30pt);
-            line-height: 10px;
             margin-top: 30px;
             padding: 10px;
             background-color: #f5deb3;
         }
         #is_corr{
             font-weight: bold;
-            font-size: clamp(15pt, 8vw, 30pt);
+            font-size: clamp(15pt, 8vw, 40pt);
         }
         #corr_ans{
             margin-bottom: 30px;
@@ -138,7 +137,7 @@
         </div>
 
         <div id="self_judge" style="display: none;">
-            <table style="margin-left: auto;margin-right: auto;font-size: 20pt;">
+            <table style="margin-left: auto;margin-right: auto;font-size: clamp(15pt, 3vw, 30pt);">
                 <tr>
                     <td><p>用意していた正解: </p></td>
                     <td><p id="prepared_ans"></p></td>
@@ -150,10 +149,10 @@
     </div>
 
     <div id="description_box" style="display: none;">
-        <p id="is_corr">正解</p>
-        <p id="ps_ans">回答: wryyy</p>
-        <p id="corr_ans">正解: wryyy</p>
-        <p id="description">本当に、そうでしょうか</p>
+        <span id="is_corr">正解</span><br>
+        <span id="ps_ans">回答: wryyy</span><br>
+        <span id="corr_ans">正解: wryyy</span><br>
+        <span id="description">本当に、そうでしょうか</span>
         <img src="next.png" alt="OK" id="nextQuiz_btn">
     </div>
     
