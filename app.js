@@ -4,9 +4,7 @@ const Scene = {
     playing: 'playing',
     result: 'result'
 }
-let scene = Scene.playing;
 let settings = {};
-let now_quiz_num = -1; // 順番通りに始めるとき用に初期値-1
 let quizzes_finished_already = [];
 let now_quiz = {};
 let score = { // 得点状況
@@ -14,8 +12,19 @@ let score = { // 得点状況
     num_corr: 0, // 正答数
     num_wrong: 0 // 誤答数
 }
-let resolveBtnClick = null;
-let json, quiz_group, quizzes, is_collect;
+let json, quiz_group, quizzes, is_collect, now_quiz_num, scene;
+
+// -----初期化-----
+function init() {
+    // 得点状況の初期化
+    score.num_corr = 0;
+    score.num_quiz = 0;
+    score.num_wrong = 0;
+
+    now_quiz_num = -1; // 順番通りに始めるとき用に初期値-1
+    scene = Scene.playing; // シーンをプレイ中にする
+    quizzes_finished_already = []; // すでに終わったクイズを保存する配列を空にする
+}
 
 // htmlの要素を取得を簡単にする
 function $(elm) {
@@ -37,6 +46,7 @@ async function read_json() {
     var jsonTxt = await response.text();
     
     json = JSON.parse(jsonTxt); // 代入
+    console.log('json:', json);
 }
 
 // -----今回のクイズのグループを取得-----
@@ -50,7 +60,7 @@ function what_quiz_group() {
     // 今回のクイズのグループを取得
     quiz_group = json.find((g) => g.Gid == settings['Gid']); // 今回のクイズ群を取得
     quizzes = quiz_group.quizzes; // クイズだけを抜き出し
-    console.log(quizzes);
+    console.log('今回のクイズ:', quizzes);
 }
 
 // -----次のクイズを選ぶ-----
@@ -97,19 +107,24 @@ function select_q() {
     }
     
     now_quiz = quizzes[now_quiz_num]; // now_quiz_num からクイズを取得
-    console.log(now_quiz_num, now_quiz);
+    console.log('現在の問題番号:', now_quiz_num, '現在の問題:', now_quiz);
 }
 
 // 出題の処理
 function set_q() {
     select_q(); // 次の問題を選ぶ
-    var ques = quizzes[now_quiz_num] // 出す問題を取得
-    $('#question').innerHTML = ques.txt; // 問題を表示する
+    if (scene != Scene.result) { // 終わってなければ
+        var ques = quizzes[now_quiz_num] // 出す問題を取得
+        $('#question').innerHTML = ques.txt; // 問題を表示する
+    }
 }
 
 // クイズを終わらせる処理
 function end() {
     scene = Scene.result; // sceneをresult(結果表示)にする
+    $('#question').innerHTML = `お疲れ様でした。<br>
+    あなたは<strong>${score.num_quiz}問中、${score.num_corr}問正解</strong>し、正答率は<strong>${$('#corr_rate').innerText}</strong>でした。<br>
+    もう一度やりたい場合は、リロードをするか、<strong>回答ボタン</strong>("answer"と書かれているボタン)を押してください。`
     alert('finish!');
 }
 
@@ -175,6 +190,10 @@ async function answer() {
         $('#answer').value = ''; // 解答欄を空白にさせる
         $('#answer').disabled = null; // 回答入力欄を変更できるようにする
         set_q(); // 出題
+
+    } else if (scene == Scene.result) { // 結果を表示中なら
+        init(); // 初期化
+        set_q(); // 出題
     }
 }
 // 正答・プレイヤーの回答・解説などを書く処理
@@ -201,14 +220,17 @@ function put_score() {
     }
 }
 
+// ロードされたときに行う
 window.onload = async function() {
+    init() // 初期化
     await read_json(); // jsonの読み込み
     what_quiz_group(); // quizらの取得
-    $('#group_name').innerHTML = json[settings.Gid].name; // クイズのグループの名前を表示
+    $('#group_name').innerHTML = json.find((g) => g.Gid == settings['Gid']).name; // クイズのグループの名前を表示
 
     set_q(); // 最初の出題
 }
 
+// ずっと繰り返す(60FPS)
 setInterval(() => {
     put_score()
-}, 16) // 60FPS
+}, 16)

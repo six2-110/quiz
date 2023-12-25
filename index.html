@@ -26,15 +26,16 @@
             padding: 20px;
         }
         select[name="settings"]{
-            width: 200px;
-            height: 50px;
+            
+            width: clamp(60px, 35vw, 200px);
+            height: clamp(15px, 15vw, 60px);
             margin: 5px 10px;
             background-color: #fff;
             border: 1px solid #000;
             border-radius: 10px;
             padding: 5px 10px;
             color: #4169e1;
-            font-size: 15pt;
+            font-size: clamp(15pt, 1vw, 30pt);
         }
         #menu{
             display: flex;
@@ -45,8 +46,8 @@
         }
         .menu_btn{
             /* ボックスの設定 */
-            width: 300px;
-            height: 75px;
+            width: clamp(100px, 80vw, 350px);
+            height: clamp(25px, 30vw, 75px);
             line-height: 75px;
             background-color: #228b22;
             margin: 10px;
@@ -55,7 +56,7 @@
             color: white;
             text-align: center;
             text-decoration: none;
-            font-size: 20pt;
+            font-size: clamp(10pt, 8vw, 20pt);
             /* 長すぎた場合は省略 */
             white-space: nowrap;
             overflow: hidden;
@@ -68,7 +69,7 @@
         }
     </style>
 </head>
-<body style="background-color: #f0f8ff;">
+<body style="background-color: #f0f8ff;font-family: 'メイリオ', 'ヒラギノ角ゴ Pro W3', 'ＭＳ Ｐゴシック', sans-serif;">
     <div id="header">
         <a href="./index.html">
             <img src="./favicon.png" alt="icon" width="100" height="100">
