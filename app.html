@@ -40,6 +40,10 @@
             padding: 10px;
             flex: 1;
         }
+        #question > img, #description > img{
+            max-width: 30vw;
+            max-height: 30vw;
+        }
         #str_q{
             background-color: #4682b4;
             width: clamp(20px, 10vw, 60px);
@@ -118,8 +122,8 @@
             margin-bottom: 30px;
         }
         #nextQuiz_btn{
-            margin:0 3vw 10px auto;
-            display: block;
+            margin: 0 0 10px auto;
+            /* display: block; */
             width: clamp(100px, 10vw, 300px);
         }
 
@@ -168,8 +172,13 @@
         <span id="is_corr">正解</span><br>
         <span id="ps_ans">回答: wryyy</span><br>
         <span id="corr_ans">正解: wryyy</span><br>
-        <span id="description">本当に、そうでしょうか</span>
-        <input type="image" src="next.png" alt="OK" id="nextQuiz_btn">
+        <span id="description">本当に、そうでしょうか</span><br>
+        <div style="display: flex;">
+            <span id="Qid" style="font-size: clamp(5pt, 5vw, 20pt);margin-top: auto;">Qid:</span>
+            <input type="image" src="next.png" alt="OK" id="nextQuiz_btn">
+        </div>
+        
+        
     </div>
     
     <div id="score_box">

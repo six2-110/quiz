@@ -275,7 +275,7 @@ async function answer() {
 
     if (scene == Scene.playing) { // プレイ中なら
         if (!is_showing_desc) { // 解説を表示させている途中じゃなければ
-            
+
             var foo = await is_answer_collect(); // 正誤判定させる
             is_collect = foo.is_collect; // 正誤判定の結果を代入
             var ps_ans = foo.ps_ans; // プレイヤーの回答を代入
@@ -336,6 +336,7 @@ function put_description(ps_ans) {
     $('#ps_ans').innerHTML = '<strong>回答:</strong> ' + ps_ans; // プレイヤーの回答を表示
     $('#corr_ans').innerHTML = '<strong>正答:</strong> ' + corr_ans; // 正答を表示
     $('#description').innerHTML = '<strong>解説:</strong> ' + now_quiz.desc; // 解説を表示
+    $('#Qid').innerText = 'Qid: ' + now_quiz.Qid; // クイズIdを表示
 }
 
 // addEventListener
