@@ -48,7 +48,6 @@ async function read_json() {
     var jsonTxt = await response.text();
     
     json = JSON.parse(jsonTxt); // 代入
-    console.log('json:', json);
 }
 
 // -----今回のクイズのグループを取得-----
@@ -79,7 +78,6 @@ function get_quizzes_got_wrong() {
     } else { // なにか保存されていれば
         quizzes_got_wrong = JSON.parse(lStorage); // 文字列から配列にして代入
     }
-    console.log('quizzes_got_wrong:', quizzes_got_wrong)
 }
 
 // -----次のクイズを選ぶ-----
@@ -125,7 +123,6 @@ function select_q() {
             break;
     }
     
-    // now_quiz_num = 
     now_quiz = quizzes[now_quiz_num]; // now_quiz_num からクイズを取得
     console.log('現在の問題番号:', now_quiz_num, '現在の問題:', now_quiz);
 }
@@ -185,7 +182,6 @@ function optBtnClick(e) {
     } else { // そうでないなら(すでにボタンが押されていて、かつ一つだけ選択する問題なら)
         var opt_btns = Array.from($doc.getElementsByClassName('opt_btn')); // すべての選択肢ボタンを配列で取得
         var btn_pushed_before = opt_btns.filter((btn) => btn.value == selected_btn[0])[0]; // 前に押されたボタンを取得
-        console.log(btn_pushed_before)
         btn_pushed_before.classList.remove('active'); // 前に押されたボタンを非活性化させる
 
         selected_btn = [pushed_btn.value]; // 押されたボタンに設定
@@ -295,8 +291,8 @@ async function answer() {
             if (is_collect && settings.remove_if_corr == 'true') { // 正解し、間違え得た問題は復習しない設定なら
                 quizzes_got_wrong = quizzes_got_wrong.filter((e) => e != now_quiz.Qid) // 間違えた問題リストからその問題を除く
                 setQs_got_wrong(); // localStorageに間違えた問題を保存
+                console.log('quizzes_got_wrong:',quizzes_got_wrong, window.localStorage.getItem('quizzes_got_wrong'))
             }
-            console.log('quizzes_got_wrong:',quizzes_got_wrong, window.localStorage.getItem('quizzes_got_wrong'))
 
             put_description(ps_ans) // 正答・プレイヤーの回答・解説などを書く
             is_showing_desc = true;

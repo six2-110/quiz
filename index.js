@@ -47,7 +47,6 @@ function menu_btn_href_set() {
         settings.forEach(set => {
             $btn.href += `&${set.id}=${set.value}`
         });
-        console.log($btn)
     })
 }
 
