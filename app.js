@@ -125,6 +125,7 @@ function select_q() {
             break;
     }
     
+    // now_quiz_num = 
     now_quiz = quizzes[now_quiz_num]; // now_quiz_num からクイズを取得
     console.log('現在の問題番号:', now_quiz_num, '現在の問題:', now_quiz);
 }
