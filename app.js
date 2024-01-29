@@ -237,7 +237,17 @@ async function is_answer_collect() {
         } else {
             is_collect = false; // 不正解
         }
-    }
+		  
+    } else if (now_quiz.corr_deci == 'order') {
+	 	  // 順序式のクイズの場合
+		  is_collect = true;
+		  for (let i = 0; i < corr_ans.length; i++) {
+		      if (!ps_ans[i].includes(corr_ans[i])) {
+				    is_collect = false;
+				}
+		  }
+	 
+	 }
 
     return {ps_ans: ps_ans, is_collect: is_collect}; // 返答
 }
