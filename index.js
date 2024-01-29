@@ -32,6 +32,7 @@ function set_qGroup_selector() {
         new_elm.id = 'group_' + qGroup.Gid;
         new_elm.innerText = qGroup.name;
         new_elm.className = 'menu_btn';
+		  new_elm.title = qGroup.name
         parent.appendChild(new_elm);
     });
     menu_btn_href_set();
