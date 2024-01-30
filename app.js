@@ -237,17 +237,17 @@ async function is_answer_collect() {
         } else {
             is_collect = false; // 不正解
         }
-		  
+		
     } else if (now_quiz.corr_deci == 'order') {
-	 	  // 順序式のクイズの場合
-		  is_collect = true;
-		  for (let i = 0; i < corr_ans.length; i++) {
-		      if (!(ps_ans[i].includes(corr_ans[i]))) {
-				    is_collect = false;
-				}
-		  }
-	 
-	 }
+	 	// 順序式のクイズの場合
+		is_collect = true;
+		for (let i = 0; i < corr_ans.length; i++) {
+            if (!(ps_ans[i].includes(corr_ans[i]))) {
+                is_collect = false;
+			}
+		}
+
+	}
 
     return {ps_ans: ps_ans, is_collect: is_collect}; // 返答
 }
@@ -326,19 +326,21 @@ async function answer() {
 }
 // 正答・プレイヤーの回答・解説などを書く処理
 function put_description(ps_ans) {
-    var corr_ans = now_quiz.ans
+    var corr_ans = now_quiz.ans;
+    var corr_ans_txt = '';
     $('#is_corr').innerText = is_collect ? '正解' : '不正解'; // 正解家不正解かを表示
 
     if (now_quiz.corr_deci == 'auto') {
         for (let i = 0; i < corr_ans.length; i++) {
-            var elm = corr_ans[i];
+            const elm = corr_ans[i];
+            console.log('corr_ans[i]:', corr_ans[i], '\nelm:', elm, 'now_quiz.ans:', now_quiz.ans)
+            corr_ans_txt += elm[0];
             if (elm.length > 1) {
-                var foo = elm.shift();
-                corr_ans[i] = `${foo}(${elm.join(',')})`;
+                console.log(elm[0], elm.slice(1), elm.slice(1).join(','))
+                corr_ans_txt += `(${elm.slice(1).join(',')})`;
             }
         }
     }
-    
 
     $('#ps_ans').innerHTML = '<strong>回答:</strong> ' + ps_ans; // プレイヤーの回答を表示
     $('#corr_ans').innerHTML = '<strong>正答:</strong> ' + corr_ans; // 正答を表示
@@ -358,7 +360,7 @@ function put_score() {
     if (score.num_quiz == 0) { // 問題数が0ならば
         $('#corr_rate').innerText = '0%';
     } else { // 問題数が0でなければ
-         // 百分率で表示(小数点2位を四捨五入)
+        // 百分率で表示(小数点2位を四捨五入)
         $('#corr_rate').innerText = String(Math.round(score.num_corr / score.num_quiz * 1000) / 10) + '%';
     }
 }
