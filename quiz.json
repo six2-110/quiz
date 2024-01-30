@@ -597,7 +597,7 @@
             "ans": [["環境権"]], "corr_deci": "auto", "Qid": "koumin_1mon1tou_chu3test5_c1",
             "desc": ""},
         {"txt": "環境保全のため、国や地方公共団体、事業者などの責務を定めた法律",
-            "ans": [["環境基本権"]], "corr_deci": "auto", "Qid": "koumin_1mon1tou_chu3test5_c2",
+            "ans": [["環境基本法"]], "corr_deci": "auto", "Qid": "koumin_1mon1tou_chu3test5_c2",
             "desc": ""},
         {"txt": "大規模な開発が環境に及ぼす影響を事前に調査すること",
             "ans": [["環境アセスメント", "環境影響評価"]], "corr_deci": "auto", "Qid": "koumin_1mon1tou_chu3test5_c3",
