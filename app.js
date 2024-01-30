@@ -242,7 +242,7 @@ async function is_answer_collect() {
 	 	  // 順序式のクイズの場合
 		  is_collect = true;
 		  for (let i = 0; i < corr_ans.length; i++) {
-		      if (!ps_ans[i].includes(corr_ans[i])) {
+		      if (!(ps_ans[i].includes(corr_ans[i]))) {
 				    is_collect = false;
 				}
 		  }
