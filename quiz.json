@@ -751,16 +751,16 @@
             "ans": [["上一段活用"], ["ラ行変格活用"]], "corr_deci": "self", "Qid": "kotenV_10",
             "desc": ""},
 		{"txt": "次に上げた動詞の活用の種類をそれぞれ答えよ<br>死ぬ、死す",
-            "ans": [["ナ行変格活用"], ["サ行変格活用"]], "corr_deci": "self", "Qid": "kotenV_",
+            "ans": [["ナ行変格活用"], ["サ行変格活用"]], "corr_deci": "self", "Qid": "kotenV_11",
             "desc": ""},
 		{"txt": "次に上げた動詞の活用の種類をそれぞれ答えよ<br>す、なす",
-            "ans": [["サ行変格活用"], ["四段活用"]], "corr_deci": "self", "Qid": "kotenV_",
+            "ans": [["サ行変格活用"], ["四段活用"]], "corr_deci": "self", "Qid": "kotenV_12",
             "desc": ""},
 		{"txt": "傍線部を文法的に説明せよ<br>いと小さき塵のありけるを目ざとに <u>見つけ</u>て",
-            "ans": [["カ行下二段活用連用形"]], "corr_deci": "self", "Qid": "kotenV_",
+            "ans": [["カ行下二段活用連用形"]], "corr_deci": "self", "Qid": "kotenV_13",
             "desc": ""},
 		{"txt": "傍線部を文法的に説明せよ<br>大人などに <u>見せ</u>たる、",
-            "ans": [["サ行下二段活用連用形"]], "corr_deci": "self", "Qid": "kotenV_",
+            "ans": [["サ行下二段活用連用形"]], "corr_deci": "self", "Qid": "kotenV_14",
             "desc": ""}
     ]}
 ]
